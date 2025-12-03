@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crimuh</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .snow {
+            position: fixed;
+            top: -10px;
+            z-index: 9999;
+            color: white;
+            user-select: none;
+            pointer-events: none;
+        }
+        .left-snow {
+            left: 5%;
+        }
+        .right-snow {
+            right: 5%;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #ffffff 0%, #9ca3af 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .skill-bar {
+            transition: width 1.5s ease-in-out;
+        }
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #9ca3af;
+            transition: width .3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body style="background-color: #0d0d0d;" class="text-gray-200 font-sans">
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium">About Me</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium">Skills</a>
+                <a href="#work" class="block px-3 py-2 rounded-md text-base font-medium">My Work</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto min-h-screen flex items-center">
+        <div class="text-center w-full">
+            <h1 class="text-5xl md:text-7xl font-bold mb-4" style="background: linear-gradient(90deg, #9ca3af 0%, #ffffff 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">SigmaLIST</h1>
+            <div class="flex justify-center mb-8">
+                <div class="inline-flex items-center text-xl md:text-2xl font-semibold text-gray-400">
+                    <span>Only Fear God ✞</span>
+                </div>
+            </div>
+            <p class="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-10">
+                This is my chrimuh lih, and I made a website out of it. TAKE that SEAN & BRANDON. Google Sheets PEASANT
+            </p>
+            <div class="flex justify-center space-x-4">
+                <a href="#work" class="px-6 py-3 bg-gray-800 text-white rounded-md hover:bg-gray-700 transition duration-300">
+                    Wishlist
+                </a>
+            </div>
+        </div>
+</section>
+    <script>
+        // Enhanced wishlist loader with support for different sites
+        const wishlistItems = [
+            {
+                url: 'https://8thwndr.com/products/reaper-l-s-tee-black-1?variant=46681026592992',
+                imageUrl: 'https://8thwndr.com/cdn/shop/files/REAPERLSBLACKBACK_1100x.png?v=1729618589'
+            },
+            {
+                url: 'https://8thwndr.com/products/eye-tee-mocha?variant=45781026963680',
+                imageUrl: 'https://8thwndr.com/cdn/shop/files/EYETEEMOCHABACK_1100x.png?v=1718129492'
+            },
+            {
+                url: 'https://8thwndr.com/products/sword-of-heaven-tee-vintage-black-1?variant=47402768466144',
+                imageUrl: 'https://8thwndr.com/cdn/shop/files/SWORDOFHEAVENTEEVINTAGEBLACK_1100x.png?v=1744558594'
+            },
+            {
+                url: 'https://saintkaizen.com/products/risen-pump-cover-acid-wash?variant=50475287347543',
+                imageUrl: 'https://saintkaizen.com/cdn/shop/files/Risen_T-Shirt_-_Acid_Wash1.png?v=1762342482&width=1000'
+            },
+            {
+                url: 'https://www.amazon.com/Banpresto-39034-10223-Dragon-Choukokubuyuuden/dp/B07H636KMF/?_encoding=UTF8&pd_rd_w=hIeU7&content-id=amzn1.sym.048a6e3c-8d40-4302-8312-26c626af6738%3Aamzn1.symc.050ea944-f1cf-4610-b462-3b604f2f4082&pf_rd_p=048a6e3c-8d40-4302-8312-26c626af6738&pf_rd_r=QVJXGV3GQDQ1K6A8JR48&pd_rd_wg=zSH8A&pd_rd_r=ff46daa1-7455-4448-bc20-9894b7211f2b&ref_=pd_hp_d_btf_ci_mcx_mr_ca_id_hp_d',
+                imageUrl: 'https://m.media-amazon.com/images/I/61Njn768tKL._AC_SL1000_.jpg'
+            },
+            {
+                url: 'https://www.amazon.com/Banpresto-39343-Dragon-Heroes-Transcendence/dp/B07MWYJ27W/?_encoding=UTF8&pd_rd_w=hIeU7&content-id=amzn1.sym.048a6e3c-8d40-4302-8312-26c626af6738%3Aamzn1.symc.050ea944-f1cf-4610-b462-3b604f2f4082&pf_rd_p=048a6e3c-8d40-4302-8312-26c626af6738&pf_rd_r=QVJXGV3GQDQ1K6A8JR48&pd_rd_wg=zSH8A&pd_rd_r=ff46daa1-7455-4448-bc20-9894b7211f2b&ref_=pd_hp_d_btf_ci_mcx_mr_ca_id_hp_d',
+                imageUrl: 'https://m.media-amazon.com/images/I/61YA6kVMUrL._AC_SL1200_.jpg'
+            }
+        ];
+
+        function loadWishlist() {
+            const container = document.getElementById('wishlist-container');
+            
+            for (const item of wishlistItems) {
+                const wishlistItem = document.createElement('a');
+                wishlistItem.href = item.url;
+                wishlistItem.target = '_blank';
+                wishlistItem.className = 'block';
+                
+                wishlistItem.innerHTML = `
+                    <div class="rounded-lg overflow-hidden border border-gray-700 hover:border-gray-500 transition-colors">
+                        <img src="${item.imageUrl}" alt="Product" class="w-full h-auto aspect-square object-contain bg-black">
+                    </div>
+                `;
+                
+                container.appendChild(wishlistItem);
+            }
+        }
+        // Load wishlist when page loads
+        document.addEventListener('DOMContentLoaded', loadWishlist);
+</script>
+<!-- Tab Switching Script -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const videoTab = document.getElementById('video-tab');
+            const thumbnailTab = document.getElementById('thumbnail-tab');
+            const videoContent = document.getElementById('video-content');
+            const thumbnailContent = document.getElementById('thumbnail-content');
+
+            videoTab.addEventListener('click', function () {
+                videoContent.classList.remove('hidden');
+                thumbnailContent.classList.add('hidden');
+                this.classList.add('bg-gray-800', 'border-gray-700', 'text-white');
+                this.classList.remove('border-gray-600', 'text-gray-400');
+                thumbnailTab.classList.remove('bg-gray-800', 'border-gray-700', 'text-white');
+                thumbnailTab.classList.add('border-gray-600', 'text-gray-400');
+            });
+
+            thumbnailTab.addEventListener('click', function () {
+                videoContent.classList.add('hidden');
+                thumbnailContent.classList.remove('hidden');
+                this.classList.add('bg-gray-800', 'border-gray-700', 'text-white');
+                this.classList.remove('border-gray-600', 'text-gray-400');
+                videoTab.classList.remove('bg-gray-800', 'border-gray-700', 'text-white');
+                videoTab.classList.add('border-gray-600', 'text-gray-400');
+            });
+        });
+    </script>
+    <!-- Wishlist Section -->
+    <section id="work" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto rounded-xl my-10" style="background-color: #050505; background-opacity: 0.5;">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4 gradient-text">My Wishlist</h2>
+            <div class="w-20 h-1 bg-gray-600 mx-auto mb-8"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="wishlist-container"></div>
+    </section>
+<script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Animate skill bars on scroll
+        function animateSkills() {
+            const skillBars = document.querySelectorAll('.skill-bar');
+            skillBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        }
+
+        // Intersection Observer for skill animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateSkills();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {threshold: 0.1});
+
+        const skillsSection = document.getElementById('skills');
+        if (skillsSection) {
+            observer.observe(skillsSection);
+        }
+    </script>
+
+    <script>
+        // Animated falling dots background effect
+        function createDots() {
+            const dotsContainer = document.createElement('div');
+            dotsContainer.style.position = 'fixed';
+            dotsContainer.style.top = '0';
+            dotsContainer.style.left = '0';
+            dotsContainer.style.width = '100%';
+            dotsContainer.style.height = '100%';
+            dotsContainer.style.pointerEvents = 'none';
+            dotsContainer.style.zIndex = '-1';
+            dotsContainer.style.overflow = 'hidden';
+            
+            // Create 300 dots spread across the screen
+            for (let i = 0; i < 300; i++) {
+                const dot = document.createElement('div');
+                dot.style.position = 'absolute';
+                dot.style.width = '2px';
+                dot.style.height = '2px';
+                dot.style.backgroundColor = 'rgba(255,255,255,0.3)';
+                dot.style.borderRadius = '50%';
+                
+                // Random horizontal position
+                dot.style.left = `${Math.random() * 100}%`;
+                
+                // Start above viewport
+                dot.style.top = `${-10 - Math.random() * 20}%`;
+                
+                // Random animation duration (5-15s)
+                const duration = 5 + Math.random() * 10;
+                dot.style.animation = `fall ${duration}s linear infinite`;
+                dot.style.animationDelay = `${Math.random() * 5}s`;
+                
+                dotsContainer.appendChild(dot);
+            }
+            
+            document.body.appendChild(dotsContainer);
+        }
+
+        // Add keyframes for falling animation
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes fall {
+                to {
+                    transform: translateY(110vh);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        createDots();
+    </script>
+</body>
+</html>
